@@ -1,0 +1,62 @@
+Open editor with VB
+/test>code .
+
+Node rest client npm
+https://www.npmjs.com/package/node-rest-client
+
+Example code react and node
+https://github.com/ccoenraets/directory-react-nodejs
+
+install react app creater
+ />npm install -g create-react-app
+
+Create new react app
+ />create-react-app test
+ 
+Add boot strap to project
+ /test>npm install react-bootstrap --save
+
+start the react app
+ /test>npm start
+
+Create the production build react app
+ /test>npm run build
+ 
+ State is the place where the data comes from.
+ Example:
+ constructor(props) {
+      super(props);
+		//Declaring state
+      this.state = {
+         header: "Header from state...",
+         "content": "Content from state..."
+      }
+   }
+   
+   render() {
+      return (
+         <div>
+		 //Usage
+            <h1>{this.state.header}</h1>
+            <h2>{this.state.content}</h2>
+         </div>
+      );
+   }
+   https://stackoverflow.com/questions/27991366/what-is-the-difference-between-state-and-props-in-react
+   
+Use state to store the data your current page needs in your controller-view.
+
+Use props to pass data & event handlers down to your child components.
+
+These lists should help guide you when working with data in your components.
+
+Props
+immutable (let's react do fast reference checks)
+used to pass data down from your view-controller(your top level component)
+better performance, use this to pass data to child components
+
+State
+Should be managed in your view-controller(your top level component)
+mutable
+worse performance
+don't access this to from child components, pass it down with props instead
