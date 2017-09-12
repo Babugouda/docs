@@ -7,3 +7,33 @@ A: Difference
 1) when dependencies are optional
 2) if the order of initialization or dependency doesn't matters
 
+Q: Spring Security Example: Limit Number of User Session
+XML Configuration:
+<session-management invalid-session-url="/logout.html">
+    <concurrency-control max-sessions="1" error-if-maximum-exceeded="true" />
+</session-management>
+Java configuration
+
+Q: Spring security Example: Session timeout
+XML Configuration:
+<session-config>
+    <session-timeout>15</session-timeout>
+    <tracking-mode>COOKIE</tracking-mode>
+</session-config>
+
+Java configuration
+
+Q: Role of DispatcherServlet and ContextLoaderListener
+DispatcherServlet is basically the front controller in the Spring MVC application as it loads the spring bean configuration file 
+and initializes all the beans that have been configured. If annotations are enabled, it also scans the packages to configure any bean 
+annotated with @Component, @Controller, @Repository or @Service annotations.
+
+ContextLoaderListener, on the other hand, is the listener to start up and shut down the WebApplicationContext in Spring root. 
+Some of its important functions includes tying up the lifecycle of ApplicationContext to the lifecycle of the ServletContext and 
+automating the creation of ApplicationContext.
+
+Q: uses of the JDBC template in Spring
+The Spring JDBC template automatically cleans up the resources; like releasing database connections.
+The Spring JDBC template converts the standard JDBC SQLExceptions into RuntimeExceptions. 
+This ensures faster response time to identify and eliminate errors.
+
