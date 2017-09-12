@@ -45,3 +45,11 @@ autowirebyName:  Auto wiring by property name. If the name of a bean is same as 
 autowirebyType: Auto wiring by property data type. If data type of a bean is compatible with the data type of other bean property, auto wire it.
 autowire by constructor: byType mode in constructor argument.
 autowire with @Autowired and @Qualifier annotations
+
+Q: Transactions:
+Making multiple SP calls transactional
+@Transactional(rollbackFor=Exception.class)
+public void performBothSProcsTransactionally(){
+   //executeSP1
+   //executeSP2
+}
