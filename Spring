@@ -37,3 +37,11 @@ The Spring JDBC template automatically cleans up the resources; like releasing d
 The Spring JDBC template converts the standard JDBC SQLExceptions into RuntimeExceptions. 
 This ensures faster response time to identify and eliminate errors.
 
+Q: Different types of autowiring:
+Desc: automatic dependency injection. Autowiring can't be used to inject primitive and string values. It works with reference only.
+Types:
+none(Default)
+autowirebyName:  Auto wiring by property name. If the name of a bean is same as the name of other bean property, auto wire it.
+autowirebyType: Auto wiring by property data type. If data type of a bean is compatible with the data type of other bean property, auto wire it.
+autowire by constructor: byType mode in constructor argument.
+autowire with @Autowired and @Qualifier annotations
