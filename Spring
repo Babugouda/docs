@@ -1,0 +1,9 @@
+Q: When do we go with Setter and Constructor Injection, pros and cons
+A: Difference 
+# constructor based injection: 
+1) It can be used when object's dependencies are not optional and they must be initialized with their dependencies
+2) It can be used if the order of initialization or dependency matters
+# Property based injection:
+1) when dependencies are optional
+2) if the order of initialization or dependency doesn't matters
+
