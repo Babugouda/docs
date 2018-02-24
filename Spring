@@ -23,7 +23,6 @@ Different types of bean configurations:
 public class Test{
 }
 
-
 3) Java based configuration
 @Configuration
 public class SpringConfig{
@@ -56,6 +55,18 @@ XML Configuration:
 </session-config>
 
 Java configuration
+
+Q: <context:annotation-config>
+It is used to activate applied annotations in already registered beans in application context.
+<beans>
+<bean id="test" class="org.Test"></bean>
+<context:annotation-config>
+</beans>
+
+Q: <context:component-scan>
+This will scan and activate all the beans which are annotated with spring annotations like @Controller, @Component, @Service etc
+It eliminates the need for declaring all the beans in the XML files.
+<context:component-scan base-package="org.controller"/>
 
 Q: Role of DispatcherServlet and ContextLoaderListener
 DispatcherServlet is basically the front controller in the Spring MVC application as it loads the spring bean configuration file 
