@@ -2,3 +2,23 @@ Global Transaction: It is an application server managed transaction, allowing to
 (this might be two different database, database and message queue, etc)
 
 Local Transaction is resource specific transaction (for example Oracle Transactions) and application server has nothing to do with them. 
+
+XA(eXtended Architecture) V/S Non-XA
+An XA transaction, in the most general terms, is a "global transaction" that may span multiple resources. 
+A non-XA transaction always involves just one resource. 
+
+An XA transaction involves a coordinating transaction manager, with one or more databases (or other resources, like JMS) all involved in a single global transaction. 
+Non-XA transactions have no transaction coordinator, and a single resource is doing all its transaction work itself (this is sometimes called local transactions). 
+
+XA transactions come from the X/Open group specification on distributed, global transactions. JTA includes the X/Open XA spec, in modified form. 
+Most stuff in the world is non-XA - a Servlet or EJB or plain old JDBC in a Java application talking to a single database. XA gets involved when you want to work with multiple resources - 2 or more databases, a database and a JMS connection, all of those plus maybe a JCA resource - all in a single transaction. In this scenario, you'll have an app server like Websphere or Weblogic or JBoss acting as the Transaction Manager, and your various resources (Oracle, Sybase, IBM MQ JMS, SAP, whatever) acting as transaction resources. Your code can then update/delete/publish/whatever across the many resources. When you say "commit", the results are commited across all of the resources. When you say "rollback", _everything_ is rolled back across all resources. 
+
+The Transaction Manager coordinates all of this through a protocol called Two Phase Commit (2PC). This protocol also has to be supported by the individual resources. 
+In terms of datasources, an XA datasource is a data source that can participate in an XA global transaction. A non-XA datasource generally can't participate in a global transaction (sort of - some people implement what's called a "last participant" optimization that can let you do this for exactly one non-XA item). 
+
+2 Phase commit
+2 phase commit protocol is an atomic commitment protocol for distributed systems. 
+This protocol as its name implies consists of two phases. 
+The first one is commit-request phase in which transaction manager coordinates all of the transaction resources to commit or abort. 
+In the commit-phase, transaction manager decides to finalize operation by committing or aborting according to the votes of the each 
+transaction resource.
