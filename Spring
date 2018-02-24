@@ -36,6 +36,8 @@ return new Test();
 }}
 
 Annotations can replace XML deployment descriptors and configurations.
+annotation-config allow us to use @Autowire, @Required and @Qualifier annotations.
+component-scan allow @Component, @Service, @Controller, etc.. annotations.
 
 Q: When do we go with Setter and Constructor Injection, pros and cons
 A: Difference 
