@@ -39,6 +39,24 @@ Annotations can replace XML deployment descriptors and configurations.
 annotation-config allow us to use @Autowire, @Required and @Qualifier annotations.
 component-scan allow @Component, @Service, @Controller, etc.. annotations.
 
+Q: <context:annotation-config>
+It is used to activate applied annotations in already registered beans in application context.
+<beans>
+<bean id="test" class="org.Test"></bean>
+<context:annotation-config>
+</beans>
+
+Q: <context:component-scan>
+This will scan and activate all the beans which are annotated with spring annotations like @Controller, @Component, @Service etc
+It eliminates the need for declaring all the beans in the XML files.
+<context:component-scan base-package="org.controller"/>
+
+Spring annotations:
+@Component: Generic stereotype for any Spring-managed component, Spring creates the bean when it finds this annotation during component scan and pull it into the application context
+@Controller: It is specialized implementation of @Component for indicating controller in spring MVC, The dispatcher scans such annotated classes for mapped methods and detects @RequestMapping annotations
+@Service: This annotation is used in our service layer and annotates classes that perform service tasks.
+@Repository: It is specialized implementation of @Component for indicating the Data Access Objects (DAO). Advantage of using the @Repository annotation, importing the DAOs into the DI container and also this annotation makes the unchecked exceptions (thrown from DAO methods) eligible for translation into Spring DataAccessException.
+
 Q: When do we go with Setter and Constructor Injection, pros and cons
 A: Difference 
 # constructor based injection: 
@@ -64,18 +82,6 @@ XML Configuration:
 
 Java configuration
 
-Q: <context:annotation-config>
-It is used to activate applied annotations in already registered beans in application context.
-<beans>
-<bean id="test" class="org.Test"></bean>
-<context:annotation-config>
-</beans>
-
-Q: <context:component-scan>
-This will scan and activate all the beans which are annotated with spring annotations like @Controller, @Component, @Service etc
-It eliminates the need for declaring all the beans in the XML files.
-<context:component-scan base-package="org.controller"/>
-
 Q: Role of DispatcherServlet and ContextLoaderListener
 DispatcherServlet is basically the front controller in the Spring MVC application as it loads the spring bean configuration file 
 and initializes all the beans that have been configured. If annotations are enabled, it also scans the packages to configure any bean 
@@ -99,8 +105,3 @@ autowirebyType: Auto wiring by property data type. If data type of a bean is com
 autowire by constructor: byType mode in constructor argument.
 autowire with @Autowired and @Qualifier annotations
 
-Spring annotations:
-@Component: Generic stereotype for any Spring-managed component, Spring creates the bean when it finds this annotation during component scan and pull it into the application context
-@Controller: It is specialized implementation of @Component for indicating controller in spring MVC, The dispatcher scans such annotated classes for mapped methods and detects @RequestMapping annotations
-@Service: This annotation is used in our service layer and annotates classes that perform service tasks.
-@Repository: It is specialized implementation of @Component for indicating the Data Access Objects (DAO). Advantage of using the @Repository annotation, importing the DAOs into the DI container and also this annotation makes the unchecked exceptions (thrown from DAO methods) eligible for translation into Spring DataAccessException.
