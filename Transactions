@@ -1,3 +1,4 @@
-Global Transaction: It is an application server managed transaction, allowing to work with different transactional resources (this might be two different database, database and message queue, etc)
+Global Transaction: It is an application server managed transaction, allowing to work with different transactional resources 
+(this might be two different database, database and message queue, etc)
 
 Local Transaction is resource specific transaction (for example Oracle Transactions) and application server has nothing to do with them. 
