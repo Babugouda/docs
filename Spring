@@ -16,11 +16,15 @@ Different types of bean configurations:
 
 2) Annotation based configuration
 <beans ......">
+    <bean id="testbean" class="orb.test.Test">
     <context:annotation-config/>
 </beans>
 
-@Component
 public class Test{
+
+@Autowired
+private Test2 test2;
+
 }
 
 3) Java based configuration
