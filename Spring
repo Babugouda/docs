@@ -102,3 +102,9 @@ Mostly those methods which run in a transaction but perform in-memory operations
 
 NEVER: Indicates that the target method will raise an exception if executed in a transactional process.
 This option is mostly not used in projects.
+
+Spring annotations:
+@Component: Generic stereotype for any Spring-managed component, Spring creates the bean when it finds this annotation during component scan and pull it into the application context
+@Controller: It is specialized implementation of @Component for indicating controller in spring MVC, The dispatcher scans such annotated classes for mapped methods and detects @RequestMapping annotations
+@Service: This annotation is used in our service layer and annotates classes that perform service tasks.
+@Repository: It is specialized implementation of @Component for indicating the Data Access Objects (DAO). Advantage of using the @Repository annotation, importing the DAOs into the DI container and also this annotation makes the unchecked exceptions (thrown from DAO methods) eligible for translation into Spring DataAccessException.
