@@ -4,6 +4,8 @@ BeanFactory(I)
    ^
    |
 ApplicationContext(I)
+It adds easier integration with Spring’s AOP features; message resource handling (for use in internationalization), 
+event publication; and application-layer specific contexts such as the WebApplicationContext for use in web applications
 
 Q: When do we go with Setter and Constructor Injection, pros and cons
 A: Difference 
