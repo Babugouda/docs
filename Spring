@@ -7,6 +7,31 @@ ApplicationContext(I)
 It adds easier integration with Spring’s AOP features; message resource handling (for use in internationalization), 
 event publication; and application-layer specific contexts such as the WebApplicationContext for use in web applications
 
+
+Different types of bean configurations:
+1) XML Based configuration
+<beans....">
+<bean id="testbean" class="orb.test.Test">
+</beans>
+
+2) Annotation based configuration
+<beans ......">
+    <context:annotation-config/>
+</beans>
+
+@Component
+public class Test{
+}
+
+
+3) Java based configuration
+@Configuration
+public class SpringConfig{
+@Bean
+public Test test(){
+return new Test();
+}}
+
 Q: When do we go with Setter and Constructor Injection, pros and cons
 A: Difference 
 # constructor based injection: 
