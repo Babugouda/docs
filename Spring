@@ -1,3 +1,10 @@
+Q: Different factories
+
+BeanFactory(I)
+   ^
+   |
+ApplicationContext(I)
+
 Q: When do we go with Setter and Constructor Injection, pros and cons
 A: Difference 
 # constructor based injection: 
