@@ -5,12 +5,14 @@ For example, when you use google docs, Email services and sales force applicatio
 
 2. PaaS – Platform as a Service: This module allows users to create their own cloud applications using Cloud service providers with 
 simplified specific tools and languages. PaaS is completely Built-in Service for Databases ,Web Applications, and Deployments.
+Examples: AWS Lambda
 
 3. IaaS – Infrastructure as a Service: Infrastructure as a service offers virtualized servers and software to the users. 
 It will be hosted in within the Cloud Data Centers. If you want to use that Virtualized Hardware or Servers, we have to pay the Cloud 
 vendors. The main benefit is we don’t need to buy all the Hardware and software for a longer time. we only pay for the services what 
 we use in a virtual environment(cloud). The Cloud Vendors manage and maintain the Data Centers. You can simply focus on your business. 
 IaaS serves Complete Infrastructure level services like Virtual Servers, Storage, Network, Security and System Management.
+Examples: AWS Elastic Compute Service, EC2 
 
 https://www.techinformant.in/cloud-computing-introduction/
 
