@@ -1,0 +1,18 @@
+#Different types of Listeners
+
+ Event triggered during project deployment and undeployment
+ ServletContextEvent 
+ Class: ServletContextListener.java
+ public void contextInitialized(ServletContextEvent e): is invoked when application is deployed on the server.
+ public void contextDestroyed(ServletContextEvent e): is invoked when application is undeployed from the server.
+ 
+ Event triggered at the time of session creation and destroy
+ HttpsSessionEvent
+ Class: HttpSessionListener.java
+ public void sessionCreated(HttpSessionEvent e): is invoked when session object is created.
+ public void sessionDestroyed(ServletContextEvent e): is invoked when session is invalidated.
+ 
+ Event is fired at the time of setting, getting or removing attribute from application scope
+ 
+ 
+ 
