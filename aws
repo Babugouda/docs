@@ -1,0 +1,39 @@
+#Different cloud compute modules
+1. SaaS – Software as a Service: This service or module allows us to use every software as a service and it serves software solution to 
+the end user. This module is the top most layer of the Cloud Computing, the End user can directly consume this service. 
+For example, when you use google docs, Email services and sales force applications, ERP, CRM Applications. 
+
+2. PaaS – Platform as a Service: This module allows users to create their own cloud applications using Cloud service providers with 
+simplified specific tools and languages. PaaS is completely Built-in Service for Databases ,Web Applications, and Deployments.
+
+3. IaaS – Infrastructure as a Service: Infrastructure as a service offers virtualized servers and software to the users. 
+It will be hosted in within the Cloud Data Centers. If you want to use that Virtualized Hardware or Servers, we have to pay the Cloud 
+vendors. The main benefit is we don’t need to buy all the Hardware and software for a longer time. we only pay for the services what 
+we use in a virtual environment(cloud). The Cloud Vendors manage and maintain the Data Centers. You can simply focus on your business. 
+IaaS serves Complete Infrastructure level services like Virtual Servers, Storage, Network, Security and System Management.
+
+https://www.techinformant.in/cloud-computing-introduction/
+
+
+#EC2 Purchasing Options and Types
+On-Demand Instances
+pay for compute capacity by the hour with no long-term commitments
+enables to increase or decrease compute capacity depending on the demands and only pay the specified hourly rate for used instances
+frees from the costs and complexities of planning, purchasing, and maintaining hardware and transforms what are commonly large fixed 
+costs into much smaller variable costs also helps remove the need to buy “safety net” capacity to handle periodic traffic spikes.
+
+Reserved Instances
+provides significant discount (up to 75%) compared to On-Demand instance pricing.
+provides flexibility to change families, operating system types, and tenancies with Convertible Reserved Instances.
+
+Spot Instances
+allow you to bid on spare EC2 computing capacity.
+are often available at a discount compared to On-Demand pricing, helping reduce the application cost, grow it’s compute capacity and 
+throughput for the same budget
+
+Dedicated Instances – that run on hardware dedicated to a single customer for additional isolation.
+
+Dedicated Hosts
+are physical servers with EC2 instance capacity fully dedicated to your use.
+can help you address compliance requirements and reduce costs by allowing you to use your existing server-bound software licenses.
+
