@@ -1,4 +1,4 @@
-###Java 8
+### Java 8
 Collection V/S Streams
 
 1. Collection can be modified at any given time. 
@@ -24,7 +24,7 @@ Advantages of Streams
 *counting* : counts list of values
 *summing* : sum of list of elements
 
-###Serialization:
+### Serialization:
 *serialVersionUID* it should be final, static
 This is used during the deserialization of an object, to ensure that a loaded class is compatible with the serialized object. If no matching class is found, an InvalidClassException is thrown.
 If UID is not defined value will be calculated based on the class and fields, it dangerous if we don't define UID, if any fields changed after serialization, during deserialization id will be calculated based on the new fields which result in to new id and which leads to exception.
@@ -33,7 +33,7 @@ If UID is not defined value will be calculated based on the class and fields, it
 *transient* will not be part of the serialization, when we deserialize that field value be null
 static will not be part of the serialization, hence when we deserialize static field value will be variable value which is there during deserilizable
 
-###Garbage collection
+### Garbage collection
 How Garbage collection works
 JVM Archetcture
 Young generation and old generation
@@ -46,7 +46,7 @@ Boxing-Autoboxing test
 
 primitive->widening->boxing->vararguments
 
-###Threads
+### Threads
 
 Volatile keyword in Java is used as an indicator to Java compiler and  Thread that do not cache value of this variable and always read it from main memory.
 
@@ -146,7 +146,7 @@ public class ExecutorTest {
 }
 ```
 
-###marker interfaces
+### Marker interfaces
 The marker interface pattern is a design pattern in computer science, used with languages that provide run-time type information about objects. It provides a means to associate metadata with a class where the language does not have explicit support for such metadata. In java, it is used as interfaces with no method specified.
 
 Example: Serialization, Cloneable, SingleThreadModel.
@@ -173,7 +173,7 @@ public interface Consumer<T> {
 }
 ```
 
-###Java oops concepts:
+### Java oops concepts:
 1) Inheritance: Inheritance can be defined as the process where one object acquires the properties of another. With the use of inheritance the information is made manageable in a hierarchical order.
    Type: IS-A and Has-A relationships
    
@@ -200,7 +200,7 @@ Benefits of Encapsulation:
 •	A class can have total control over what is stored in its fields.
 •	The users of a class do not know how the class stores its data. A class can change the data type of a field, and users of the class do not need to change any of their code.
 
-### Immutable object: Making class immutable
+### Imutable object: Making class immutable
 In object-oriented and functional programming, an immutable object is an object whose state cannot be modified after it is created.
 
 Any modification on immutable object will result in another immutable object
@@ -296,7 +296,7 @@ return name.compareTo(d.getName());
 ```
 Comparator is useful if many sort sequences are need to be created and the class which we want use is present in different library and it can’t be modified.
 
-###Design Patterns
+### Design Patterns
 What's design pattern: It's well defined solution to common problems, Industry standard and language independent.
 1. Design patterns are not algorithms.
 2. These are language independent strategies for solving common object-oriented design problems.
