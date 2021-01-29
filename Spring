@@ -53,9 +53,12 @@ It eliminates the need for declaring all the beans in the XML files.
 
 Spring annotations:
 @Component: Generic stereotype for any Spring-managed component, Spring creates the bean when it finds this annotation during component scan and pull it into the application context
-@Controller: It is specialized implementation of @Component for indicating controller in spring MVC, The dispatcher scans such annotated classes for mapped methods and detects @RequestMapping annotations
+@Controller: It is specialized implementation of @Component for indicating controller in spring MVC, The dispatcher scans such annotated classes for mapped methods and detects @RequestMapping annotations.
 @Service: This annotation is used in our service layer and annotates classes that perform service tasks.
-@Repository: It is specialized implementation of @Component for indicating the Data Access Objects (DAO). Advantage of using the @Repository annotation, importing the DAOs into the DI container and also this annotation makes the unchecked exceptions (thrown from DAO methods) eligible for translation into Spring DataAccessException.
+@Repository: It is specialized implementation of @Component.
+Advantage of using this annotation is any  platform-specific exceptions are caught and then re-thrown as one of Spring’s unchecked data access exceptions if bean of PersistenceExceptionTranslationPostProcessor present in the class path.
+
+https://stackoverflow.com/questions/6827752/whats-the-difference-between-component-repository-service-annotations-in#:~:text=%40Component%20%3A%20It%20is%20a%20basic,component%20in%20the%20business%20layer.
 
 Q: When do we go with Setter and Constructor Injection, pros and cons
 A: Difference 

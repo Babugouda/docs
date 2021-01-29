@@ -15,6 +15,7 @@
 * [jvm-architecture] - jvm-architecture
 * [jvm-architecture-video] - jvm-architecture youtube
 * [jvm-garbage-collectors] - jvm-garbage-collectors
+* [jvm-garbage-collection-works] - jvm-garbage-collectors and how it works
 * [microservices-vs-soa] - microservices-vs-soa
 * [json-web-tokens] - microservices-vs-soa
 * [kubernetes-1] - kubernetes-video-1
@@ -22,6 +23,8 @@
 * [terraform-1] - terraform-video-1
 * [docker-1] - docker-video-1
 * [docker-compose] - docker-compose-video-1
+* [oauth grant types] - oauth grant types
+* [12 factor app methodology] - 12 factor app methodology
 
 [design-patterns-for-microservices]: <https://dzone.com/articles/design-patterns-for-microservices>
 [saga and other design-patterns-for-microservices]: <https://microservices.io/patterns/data/saga.html>
@@ -44,10 +47,14 @@
 [terraform-1]: <https://www.youtube.com/watch?v=l5k1ai_GBDE/>
 [docker-1]: <https://www.youtube.com/watch?v=jPdIRX6q4jA/>
 [docker-compose]: <https://www.youtube.com/watch?v=ZZ2Llh4NhaY/>
-
+[jvm-garbage-collection-works]: <https://stackify.com/what-is-java-garbage-collection/>
+[oauth grant types]: <https://www.youtube.com/watch?v=1ZX7554l8hY/>
+[12 factor app methodology]: <https://www.joomlatools.com/developer/platform/12-factor-app>
 
 Videos
 https://www.youtube.com/watch?v=1id6ERvfozo
+
+https://www.solarwindsmsp.com/blog/how-does-tls-work
 
 https://www.toptal.com/spring/interview-questions
 

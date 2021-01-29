@@ -25,7 +25,7 @@ GenerationType.IDENTITY: Assign primary keys using database identity column
 
 GenerationType.SEQUENCE: Assign primary keys using database sequence
 
-enerationType.TABLE: Assign primary keys using database table to ensure uniqueness
+GenerationType.TABLE: Assign primary keys using database table to ensure uniqueness
 
 We can create our custom GenerationType by extending the hibernate class org.hibernate.id.SequenceGenerator and override 
 
@@ -67,3 +67,8 @@ CascadeType.PERSIST,
 
 When we access the lazy data after closing the session, it will throw the lazyinitialization exeption
 
+validate: validate the schema, makes no changes to the database.
+update: update the schema.
+create: creates the schema, destroying previous data.
+create-drop: drop the schema when the SessionFactory is closed explicitly, typically when the application is stopped.
+Source: community documentation

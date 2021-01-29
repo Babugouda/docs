@@ -12,3 +12,5 @@ System.out.println(response.getStatus());
 #Rest Service life cycle
 If resource class is not annotated with Singleton it will create new object for each request and it will be threadsafe, 
 So it's request scoped
+
+

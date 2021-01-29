@@ -1,9 +1,12 @@
-Global Transaction: It is an application server managed transaction, allowing to work with different transactional resources 
+###
+## Global Transaction: 
+It is an application server managed transaction, allowing to work with different transactional resources 
 (this might be two different database, database and message queue, etc)
 
-Local Transaction is resource specific transaction (for example Oracle Transactions) and application server has nothing to do with them. 
+## Local Transaction 
+It is resource specific transaction (for example Oracle Transactions) and application server has nothing to do with them. 
 
-XA(eXtended Architecture) V/S Non-XA
+## XA(eXtended Architecture) V/S Non-XA
 https://sites.google.com/site/assignmentssolved/mca/semester4/mc0077/6
 An XA transaction, in the most general terms, is a "global transaction" that may span multiple resources. 
 A non-XA transaction always involves just one resource. 
@@ -17,22 +20,14 @@ Most stuff in the world is non-XA - a Servlet or EJB or plain old JDBC in a Java
 The Transaction Manager coordinates all of this through a protocol called Two Phase Commit (2PC). This protocol also has to be supported by the individual resources. 
 In terms of datasources, an XA datasource is a data source that can participate in an XA global transaction. A non-XA datasource generally can't participate in a global transaction (sort of - some people implement what's called a "last participant" optimization that can let you do this for exactly one non-XA item). 
 
-2 Phase commit
+## 2 Phase commit
 2 phase commit protocol is an atomic commitment protocol for distributed systems. 
 This protocol as its name implies consists of two phases. 
-The first one is commit-request phase in which transaction manager coordinates all of the transaction resources to commit or abort. 
+The first one is commit-request phase in which transaction manager coordinates all the transaction resources to commit or abort. 
 In the commit-phase, transaction manager decides to finalize operation by committing or aborting according to the votes of the each 
 transaction resource.
 
-Q: Transactions:
-Making multiple SP calls transactional
-@Transactional(rollbackFor=Exception.class)
-public void performBothSProcsTransactionally(){
-   //executeSP1
-   //executeSP2
-}
-
-#ACID
+## ACID
 Atomicity − A transaction should be treated as a single unit of operation, which means either the entire sequence of operations is successful or unsuccessful.
 Consistency − This represents the consistency of the referential integrity of the database, unique primary keys in tables, etc.
 Isolation − There may be many transaction processing with the same data set at the same time. Each transaction should be isolated from others to prevent data corruption.
@@ -40,10 +35,13 @@ Durability − Once a transaction has completed, the results of this transaction
 
 Link: https://dzone.com/articles/spring-transaction-management
 
-#Isolation: 
+## Isolation: 
 @Transactional (isolation=Isolation.READ_COMMITTED)'
+
 The default is Isolation.DEFAULT
-Most of the times, we will use default unless and until you have specific requirements.
+
+Most of the time, we will use default unless and until you have specific requirements.
+
 Informs the transaction (tx) manager that the following isolation level should be used for the current tx. Should be set at the point from where the tx starts because we cannot change the isolation level after starting a tx.
 
 DEFAULT: Use the default isolation level of the underlying database.
@@ -60,7 +58,7 @@ Dirty Reads: Transaction 'A' writes a record. Meanwhile Transaction 'B' reads th
 Non-Repeatable Reads: Transaction 'A' reads some record. Then Transaction 'B' writes that same  record and commits. Later Transaction A reads that same record again and may get different values because Transaction B made changes to that record and committed. This is a non-repeatable read.
 Phantom Reads: Transaction 'A' reads a range of records. Meanwhile Transaction 'B' inserts a new record in the same range that Transaction A initially fetched and commits. Later Transaction A reads the same range again and will also get the record that Transaction B just inserted. This is a phantom read: a transaction fetched a range of records multiple times from the database and obtained different result sets (containing phantom records).
 
-#Propogation:
+## Propogation:
 @Transactional(propagation=Propagation.REQUIRED)
 If not specified, the default propagational behavior is REQUIRED. 
 
@@ -80,4 +78,48 @@ Mostly those methods which run in a transaction but perform in-memory operations
 
 NEVER: Indicates that the target method will raise an exception if executed in a transactional process.
 This option is mostly not used in projects.
+
+## JNDI configuration
+
+```java
+@Bean
+public DataSource dataSource(){
+
+return new JNDIDataSourceLookup()
+        .getDataSource("jdbc/mytest")
+}
+```
+
+## Enable transactions in Spring
+
+1. Enable transaction using @EnableTransactionManagement on top of config class
+2. Create a bean of PlatformTransactionManager
+    Implementations example are
+    DataSourceTransactionManager
+    JtaTransactionManager
+    JpaTransactionManager
+    It has 3 methods 
+    1. getCurrentTransaction() -> returns active transaction
+    2. commit() -> Commit the transaction
+    3. rollback() -> Rollback the transaction
+   ```java
+   @Bean
+   public PlatformTransactionManager PlatformTransactionManager(Datasource datasource){
+   return new DataSourceTransactionManager(datasource);
+   }
+   ```
+3. Use @Transactional annotation on top of class or method. 
+   a. It rollbacks the transaction in case of errors and runtime exceptions
+   b. Invocation is proxied by TransactionInterceptor and TransactionAspectSupport which are using PlatformTransactionManager to manage transactions
+   
+    Making multiple SP calls transactional
+   ```java
+    @Transactional(rollbackFor=Exception.class)
+    public void performBothSProcsTransactionally(){
+    //executeSP1
+    //executeSP2
+    }
+   ```
+
+
 
