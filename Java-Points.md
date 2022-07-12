@@ -15,14 +15,15 @@ Advantages of Streams
 3. Laziness : intermediate operations are not executed until terminal operations are called
 4. Short-Circuit Behavior : Short-circuiting will terminate the processing once condition met, examples : anyMatch, allMatch, findFirst, findAny, limit
 5. Order of intermediate operations are important in streams, example filter before sort
+
 **Imp method**
 
-*map* : It converts stream from one type to other, intermediate function
-*reduce* : Used to reduce content of stream to single value, Terminal function, Syntax: reduce(initailValue, Function)
-*mapping* : converts objects from one type of list to other type list
-*reducing* : Converts list to single value
-*counting* : counts list of values
-*summing* : sum of list of elements
+1. *map* : It converts stream from one type to other, intermediate function
+2. *reduce* : Used to reduce content of stream to single value, Terminal function, Syntax: reduce(initailValue, Function)
+3. *mapping* : converts objects from one type of list to other type list
+4. *reducing* : Converts list to single value
+5. *counting* : counts list of values
+6. *summing* : sum of list of elements
 
 ### Serialization:
 *serialVersionUID* it should be final, static
@@ -72,6 +73,14 @@ Once the lock is granted, no other thread will be allowed to read or write (i.e.
 1. It is an extension of the Executor interface and provides a facility for returning a Future object
 2. ExecutorService provides methods to submit callable tasks -> <T> Future<T> submit(Callable<T> task), Future<?> submit(Runnable task), void execute(Runnable task);
 3. ExecutorService provides method to shut down thread pool. Once the shutdown is called, the thread pool will not accept new tasks but complete any pending task.
+
+*Executor service methods*
+1. execute(Runnable task): execute() method takes in a runnable object and performs its task asynchronously. After making the call to execute method
+2. submit(Runnable task) / submit(Callable<T> task) : The submit() method takes in a runnable object and returns a Future object. This object is later on used to check the status of Runnable whether it has completed execution or not.
+3. invokeAny(Collection<? extends Callable<T>> tasks) : The invokeAny() method takes a collection of Callablle objects or objects of classes implementing Callable. This method returns the future object of the callable object which gets successfully executed first.
+4. invokeAll(Collection<? extends Callable<T>> tasks) : The invokeAll() method takes in a Collection of Callable objects having tasks and returns a list of Future objects containing the result of all the tasks.
+
+submit vs invokeAll : invoke all is same as submit but executes all the tasks concurrently, but the call itself blocks until all the tasks completes.
 
 **Executors** 
 
@@ -145,6 +154,14 @@ public class ExecutorTest {
     }
 }
 ```
+
+**lock vs mutex vs semaphore**
+
+A lock allows only one thread to enter the part that's locked and the lock is not shared with any other processes.
+
+A mutex is the same as a lock but it can be system wide (shared by multiple processes).
+
+A semaphore does the same as a mutex but allows x number of threads to enter, this can be used for example to limit the number of cpu, io or ram intensive tasks running at the same time.
 
 ### Marker interfaces
 The marker interface pattern is a design pattern in computer science, used with languages that provide run-time type information about objects. It provides a means to associate metadata with a class where the language does not have explicit support for such metadata. In java, it is used as interfaces with no method specified.
