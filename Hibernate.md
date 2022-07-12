@@ -1,12 +1,12 @@
 create table student(id int not null AUTO_INCREMENT,firstname varchar(20),lastname varchar(20), primary key (id));
 
 
-insert into student values (1,'babu','patil');
-insert into student values (2,'babu2','patil');
-insert into student values (3,'babu3','patil3');
-insert into student values (4,'babu4','patil');
-insert into student values (5,'babu5','patil');
-insert into student values (6,'babu6','patil');
+- insert into student values (1,'babu','patil');
+- insert into student values (2,'babu2','patil');
+- insert into student values (3,'babu3','patil3');
+- insert into student values (4,'babu4','patil');
+- insert into student values (5,'babu5','patil');
+- insert into student values (6,'babu6','patil');
 
 @Entity 
 Required annotation for pojo class
@@ -21,9 +21,21 @@ Required annotation for pojo class, it's used to mention primary key
 
 GenerationType.AUTO: Pick appropriate strategy for the underlying database
 
-GenerationType.IDENTITY: Assign primary keys using database identity column
+GenerationType.IDENTITY: Assign primary keys using database identity column, generator will always require a database hit for fetching the primary key value
+JDBC batching is disabled, Database is responsible to auto generate the primary key
+    
+```java
+   @Id
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
+   Integer id;
+ ```
 
 GenerationType.SEQUENCE: Assign primary keys using database sequence
+```java
+   @Id
+   @GeneratedValue(strategy = GenerationType.SEQUENCE)
+   Integer id;
+ ```
 
 GenerationType.TABLE: Assign primary keys using database table to ensure uniqueness
 
@@ -72,3 +84,26 @@ update: update the schema.
 create: creates the schema, destroying previous data.
 create-drop: drop the schema when the SessionFactory is closed explicitly, typically when the application is stopped.
 Source: community documentation
+
+#### Composite Key -
+is a candidate key that consists of two or more attributes (table columns) that together uniquely identify an entity occurrence (table row).
+
+Example:
+```java
+@Entity
+class Time {
+@EmbeddedId
+TimeId id;
+
+    String src;
+    String dst;
+    Integer distance;
+    Integer price;
+}
+
+@Embeddable
+class TimeId implements Serializable {
+Integer levelStation;
+Integer confPathID;
+}
+```
